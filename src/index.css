@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #edf1f6;
+    --bg-shell: #f4f7fb;
+    --bg-card: #ffffff;
+    --border-color: #d4dde8;
+    --text-primary: #131f33;
+    --text-secondary: #45566e;
+    --accent-primary: #1d4ed8;
+    --accent-hover: #1e40af;
+    --table-header: #f1f5f9;
+    --table-row-hover: #e0f2fe20;
+    --input-bg: #ffffff;
+  }
+
+  .dark {
+    --bg-canvas: #020617;
+    --bg-shell: #0f172a;
+    --bg-card: #1e293b;
+    --border-color: #334155;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent-primary: #2563eb;
+    --accent-hover: #3b82f6;
+    --table-header: #0f172a;
+    --table-row-hover: #1e293b80;
+    --input-bg: #0b132b;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+  }
+}
+
+/* Keep utility colors readable when the light theme is active. Many workspace
+   badges and callouts use dark-theme text tints that become too pale on white. */
+.light [class~="text-slate-300"],
+.light [class~="text-slate-400"],
+.light [class~="text-slate-500"] { color: #475569; }
+.light [class~="text-blue-100"],
+.light [class~="text-blue-200"] { color: #1e3a8a; }
+.light [class~="text-blue-300"] { color: #1e40af; }
+.light [class~="text-blue-400"] { color: #1d4ed8; }
+.light [class~="text-sky-200"],
+.light [class~="text-sky-300"] { color: #075985; }
+.light [class~="text-sky-400"] { color: #0369a1; }
+.light [class~="text-cyan-400"] { color: #0e7490; }
+.light [class~="text-indigo-200"],
+.light [class~="text-indigo-300"] { color: #3730a3; }
+.light [class~="text-indigo-200/90"] { color: #3730a3; }
+.light [class~="text-indigo-400"] { color: #4338ca; }
+.light [class~="text-purple-300"] { color: #6b21a8; }
+.light [class~="text-purple-400"] { color: #7e22ce; }
+.light [class~="text-emerald-200"],
+.light [class~="text-emerald-300"] { color: #065f46; }
+.light [class~="text-emerald-400"] { color: #047857; }
+.light [class~="text-green-400"] { color: #15803d; }
+.light [class~="text-amber-200"] { color: #78350f; }
+.light [class~="text-amber-300"] { color: #92400e; }
+.light [class~="text-amber-400"] { color: #b45309; }
+.light [class~="text-rose-200"] { color: #881337; }
+.light [class~="text-rose-300"],
+.light [class~="text-rose-300/80"] { color: #9f1239; }
+.light [class~="text-rose-400"] { color: #be123c; }
+
+/* Give tinted status panels enough color to remain distinct from white cards. */
+.light [class~="bg-blue-500/5"] { background-color: #eff6ff; }
+.light [class~="bg-blue-500/10"],
+.light [class~="bg-blue-600/10"] { background-color: #dbeafe; }
+.light [class~="bg-blue-500/20"],
+.light [class~="bg-blue-600/30"] { background-color: #bfdbfe; }
+.light [class~="bg-sky-500/10"] { background-color: #e0f2fe; }
+.light [class~="bg-sky-500/20"] { background-color: #bae6fd; }
+.light [class~="bg-indigo-500/10"] { background-color: #e0e7ff; }
+.light [class~="bg-indigo-500/20"] { background-color: #c7d2fe; }
+.light [class~="bg-purple-500/10"] { background-color: #f3e8ff; }
+.light [class~="bg-emerald-500/10"] { background-color: #d1fae5; }
+.light [class~="bg-emerald-500/15"],
+.light [class~="bg-emerald-500/20"] { background-color: #a7f3d0; }
+.light [class~="bg-amber-500/10"] { background-color: #fef3c7; }
+.light [class~="bg-amber-500/15"],
+.light [class~="bg-amber-500/20"] { background-color: #fde68a; }
+.light [class~="bg-rose-500/10"] { background-color: #ffe4e6; }
+.light [class~="bg-rose-500/15"],
+.light [class~="bg-rose-500/20"] { background-color: #fecdd3; }
+.light [class~="bg-rose-950/20"] { background-color: #ffe4e6; }
+.light [class~="bg-slate-500/10"],
+.light [class~="bg-slate-500/20"],
+.light [class~="bg-slate-700/40"],
+.light [class~="bg-slate-700/50"] { background-color: #e2e8f0; }
+
+.light [class~="border-blue-500/20"] { border-color: #93c5fd; }
+.light [class~="border-blue-500/30"] { border-color: #60a5fa; }
+.light [class~="border-sky-500/20"] { border-color: #7dd3fc; }
+.light [class~="border-sky-500/30"] { border-color: #38bdf8; }
+.light [class~="border-indigo-500/20"] { border-color: #a5b4fc; }
+.light [class~="border-indigo-500/30"] { border-color: #818cf8; }
+.light [class~="border-emerald-500/20"] { border-color: #6ee7b7; }
+.light [class~="border-emerald-500/30"] { border-color: #34d399; }
+.light [class~="border-amber-500/20"] { border-color: #fcd34d; }
+.light [class~="border-amber-500/30"] { border-color: #fbbf24; }
+.light [class~="border-rose-500/20"] { border-color: #fda4af; }
+.light [class~="border-rose-500/30"] { border-color: #fb7185; }
+.light [class~="border-rose-900/30"] { border-color: #fda4af; }
+.light [class~="border-slate-500/30"] { border-color: #94a3b8; }
+
+.font-mono, .tabular-nums {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.wms-pick-print-sheet {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111827 !important;
+  }
+
+  #root {
+    display: none !important;
+  }
+
+  .wms-pick-print-sheet {
+    display: block !important;
+    position: static !important;
+    width: 100%;
+    color: #111827 !important;
+    background: #fff !important;
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+  }
+
+  .wms-pick-print-content {
+    width: 100%;
+    color: #111827;
+    background: #fff;
+  }
+
+  .wms-pick-print-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 2px solid #1d4ed8;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+
+  .wms-pick-print-header strong {
+    display: block;
+    font-size: 15pt;
+  }
+
+  .wms-pick-print-header div div {
+    margin-top: 4px;
+    color: #475569;
+  }
+
+  .wms-pick-print-number {
+    font-size: 17pt;
+    font-weight: 700;
+    color: #1d4ed8;
+  }
+
+  .wms-pick-print-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    margin-bottom: 16px;
+  }
+
+  .wms-pick-print-meta span,
+  .wms-pick-print-meta strong {
+    display: block;
+  }
+
+  .wms-pick-print-meta span {
+    color: #475569;
+    font-size: 9pt;
+    margin-bottom: 3px;
+  }
+
+  .wms-pick-print-content h2 {
+    font-size: 12pt;
+    margin: 0 0 7px;
+  }
+
+  .wms-pick-print-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 14px;
+  }
+
+  .wms-pick-print-table th,
+  .wms-pick-print-table td {
+    border: 1px solid #94a3b8;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .wms-pick-print-table th {
+    background: #eff6ff;
+  }
+
+  .wms-pick-print-table small {
+    color: #475569;
+  }
+
+  .wms-pick-print-instructions {
+    border: 1px solid #cbd5e1;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+  }
+
+  .wms-pick-print-instructions ol {
+    margin: 6px 0 0;
+    padding-left: 20px;
+  }
+
+  .wms-pick-print-instructions li {
+    margin: 4px 0;
+  }
+
+  .wms-pick-print-fields {
+    display: grid;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .wms-pick-print-signatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 24px;
+  }
+
+  .wms-pick-print-footer {
+    display: block;
+    color: #64748b;
+    font-size: 8pt;
+    margin-top: 24px;
+    border-top: 1px solid #cbd5e1;
+    padding-top: 7px;
+  }
+}

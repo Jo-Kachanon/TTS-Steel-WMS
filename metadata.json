@@ -1,0 +1,6 @@
+{
+  "name": "TTS Steel WMS",
+  "description": "ระบบบริหารจัดการคลังสินค้าเหล็ก บริษัทไทยทวีพรค้าเหล็ก จำกัด (TTS) - Industrial TMS v2 WMS",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
